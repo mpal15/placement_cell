@@ -1,0 +1,21 @@
+var express = require("express");
+var route = express.Router();
+var passport = require('passport');
+var user = require("../Controller/user_Controller")
+route.get("/login_form",user.login);
+route.get("/signup",user.signup);
+route.post("/signupPost",user.signupPost);
+route.post("/loginPost",passport.authenticate('local',{failureRedirect : '/users/login_form'}),user.SignInPost);
+route.get('/profile',user.profile);
+route.get('/Student_list',user.Student_list);
+route.post('/addnewStudent',user.addnewStudent);
+route.get('/logout',user.logout);
+route.get('/admin_profile',user.admin_profile);
+route.post('/Campany_post',user.Campany_post);
+route.get('/Campany',user.Campany);
+route.get('/student_interview/:id',user.student_interview);
+route.post('/students_interview',user.students_interview);
+route.get('/Delete/:id',user.Delete);
+route.get('/student_profile/:id',user.student_profile);
+route.get('/download',user.download);
+module.exports = route;

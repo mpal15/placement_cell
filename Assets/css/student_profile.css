@@ -1,0 +1,16 @@
+.main-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 86vh;
+    width: 500px;
+    margin-left: 30%;
+    margin-top: 4%;
+}
+img{
+    height: 90px;
+    width: 90px;
+    margin-top: 10px;
+    margin-left: 80px;
+}

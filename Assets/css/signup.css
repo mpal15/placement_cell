@@ -1,0 +1,30 @@
+.signup{
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-top: 10%;
+	margin-left: 35%;
+	margin-right: 35%;
+	background-color: rgb(123, 0, 139);
+	border-radius: 2%;
+	height:250px;
+	width: 400px;
+    color: #ffff;
+}
+h1{
+    color: #ffff;
+}
+#btn-submit{
+    border-radius: 10px;
+    border: 3px solid #ffff;
+    background-color: #ffff;
+    transition: all .3s ease;
+}
+#btn-submit:hover{
+    transition: all .3s ease;
+    transform: scale(1.05);
+}
+input{
+    border-radius: 5px;
+}

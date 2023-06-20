@@ -1,0 +1,42 @@
+.signin{
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-top: 10%;
+	margin-left: 35%;
+	margin-right: 35%;
+	background-color: rgb(123, 0, 139);
+	border-radius: 2%;
+	height:200px;
+	width: 400px;
+}
+h1{
+	font-size:larger;
+	font-weight: bold;
+	color:#ffff;
+	
+}
+label{
+	color: #ffff;
+}
+.btn-submit{
+	border: 3px solid #ffff;
+	border-radius: 10px;
+	background-color: #ffff;
+	font-size: medium;
+	font-weight: bold;
+}
+input{
+	border-radius: 5px;
+	transition: all .3s ease;
+}
+input:hover{
+     transform: scale(1.05);
+	 transition: all .3s ease;
+}
+.signup{
+ margin-top: 90px;
+ margin-left: 20px;
+	
+}

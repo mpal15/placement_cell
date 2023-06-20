@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/signup.css">
+<div class="signup">
+
+<form action ='/users/signupPost' method = "post">
+    <h1>SignUp</h1>
+    <div class="row">
+        <div class="col-5"><label>Name:</label></div>
+        <div class="col-7"><input type = "text" placeholder="name" name="name" required ></div>
+    </div>
+    <div class="row">
+        <div class="col-5"><label>Email:</label></div>
+        <div class="col-7"><input type = "email" placeholder="email" name="email" required></div>
+    </div><div class="row">
+        <div class="col-5"><label>Password:</label></div>
+        <div class="col-7"><input type = "password" placeholder="password" name="password" required></div>
+    </div>
+    <div class="row">
+        <div class="col-5"><label>confirm_password:</label></div>
+        <div class="col-7"><input type = "password" placeholder="confirm_password" name="confirm_password" required></div>
+    </div>
+    <button id ="btn-submit">submit</button>
+</form>
+</div>

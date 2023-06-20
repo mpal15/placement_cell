@@ -1,0 +1,31 @@
+<link rel = "stylesheet" href="/css/students_interview.css">
+<div class="main">
+    
+<form  action = "/users/students_interview" method="post">
+    <h1>SET INTERVIEW</h1>
+  <input type="text" value="<%=id%>" style="display: none;" name="Student_id">
+    <div class="row">
+        <div class="col-5"><label>Campany_name:</label></div>
+        <div class="col-7">
+            <select name="Campany_name" id="Campany">
+               
+                <%for(var i=0;i<campanies_list.length;i++){%>
+                    <option value="<%= campanies_list[i].name %>">
+                     <%= campanies_list[i].name %>
+                     </option>
+                <%}%>
+             
+            
+          </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5"><label>Date:</label></div>
+        <div class="col-7"><input type="date" placeholder="date" name="date" required></div>
+    </div>
+    <div class="row">
+        <div class="col-5"><label>Status:</label></div>
+        <div class="col-7"><input type="text" placeholder="status" name="status" required></div>
+    </div>
+    <button class="btn-submit" type="submit">submit</button>
+</form></div>

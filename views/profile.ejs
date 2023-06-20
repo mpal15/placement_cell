@@ -1,0 +1,300 @@
+<link rel="stylesheet" href="/css/profile.css">
+
+<nav class="navbar bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand"><img src="/images/placementcell.png" width="100px" height="30px"></a> 
+      <button class="btn  btn-success" type="submit"  data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false" aria-controls="collapseWidthExample1">Campany</button>
+      <a href="/users/download"><button class="btn  btn-success" id="download_button" type="submit">download</button></a>
+      
+       <a href = "/users/admin_profile"> <button class="btn  btn-success" type="submit">profile</button></a>
+      <div class="d-flex">
+       
+       <a href="/users/logout"><button class="btn  btn-danger" type="submit">logout</button></a> 
+
+      
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="Student-container container"></div>
+
+    <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      Add New Student
+    </button>
+  </p>
+  
+
+
+
+  
+
+
+
+  <div style="min-height: 120px; position: absolute; left: 20%; top: 14%;">
+    <div class="collapse collapse-vertical" id="collapseWidthExample">
+      <div class="card card-body" style="width: 800px;">
+        <form action ="/users/addnewStudent" method="post">
+
+  <div class="container">
+
+
+        <h1>Student</h1>
+
+        <div class = "row my-3">
+            <div class="col-2">
+    <span class="fs-5">Name :</span>
+            </div>
+
+            <div class="col-10">
+               
+                <input type="text" class="name form form-control" name="name">
+            </div>
+
+        </div>
+
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">Email :</span>
+                        </div>
+
+            <div class="col-10">
+
+               
+    <input type="email" class="email form form-control" name = "email"><br>
+
+            </div>
+
+        </div>
+
+
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">College_name :</span>
+            </div>
+
+            <div class="col-10">
+
+
+              
+                <input type="text" class="College_name form form-control" name = "College_name">
+
+             
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="row my-3">
+
+
+            <div class="col-2">
+                <span class="fs-5">Course :</span>
+            </div>
+
+            <div class="col-10">
+
+               
+                <input type="text" class="Course form form-control" name="Course">
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">Branch :</span>
+            </div>
+
+            <div class="col-10">
+
+                 
+   
+    <input type="text" class="Branch form form-control" name="Branch"><br>
+
+             
+
+            </div>
+
+        </div>
+
+
+
+        
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">Phone_no :</span>
+            </div>
+
+            <div class="col-10">
+
+                
+    
+    <input type="text" class="Phone_no form form-control" name="Phone_no"><br>
+
+             
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="row my-3">
+
+
+            <div class="col-2">
+                <span class="fs-5">Batch_no :</span>
+            </div>
+
+            <div class="col-10">
+
+              
+                <input type="text" class="Batch_no form form-control" name ="Batch_no"><br>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">Dsa_score :</span>
+            </div>
+
+            <div class="col-10">
+              
+               
+    <input type="text" class="Dsa_score form form-control" name="Dsa_score">
+             
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">Web_score :</span>
+            </div>
+
+            <div class="col-10">
+
+                
+                <input type="text" class="Web_score form form-control" name="Web_score">
+
+            </div>
+
+        </div>
+
+
+        <div class="row my-3">
+
+            <div class="col-2">
+                <span class="fs-5">React_score</span>
+            </div>
+
+            <div class="col-10">
+
+              
+                <input type="text" class="Web_score form form-control" name="React_score"><br>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row my-3">
+
+            <div class="col-12">
+
+                <button type= "submit" class="btn btn-success fs-5">Submit</button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+   
+    
+   
+  
+  
+    
+   
+   
+   
+
+  </div>
+
+  </form>
+  </div>
+  </div>
+  </div>
+
+
+
+
+  <div style="min-height: 120px; position: absolute; left: 20%; top: 14%;">
+    <div class="collapse collapse-vertical" id="collapseWidthExample1">
+      <div class="card card-body" style="width: 800px;">
+        <form action ="/users/Campany_post" method ="post">
+           <div class="row my-3">
+            <div class="col-3"><p class ="form form-control">Campany_name:</p></div>
+
+            <div class="col-9"><input type ="text"  class =" form form-control" name ="Campany_name"></div>
+
+           </div>
+
+            <div class="row my-3">
+               <div class="col-3"> <p class="form form-control">Date</p></div>
+                <div class="col-9"><input type ="date" class="form form-control" name = "Date"></div>
+        </div>
+
+            
+            <button type="submit" class="btn btn-success">Submit</button>
+
+
+        </form>
+        <hr>
+        <div class="Campany">
+            <h1>Campanies:</h1>
+      <% for(var i = 0; i < CompanyList.length; i++) {%>
+       <form>
+        <div class="row">
+            <div class="col-4"> <p><%= CompanyList[i].name%></p></div>
+            <div class="col-4"> <p><%= CompanyList[i].date%></p></div>
+            <div class="col-4"> <a href="/users/Delete/<%= CompanyList[i].id %>"><button class="btn btn-danger" type="button">Delete</button></a></div>
+        </div>
+       
+        
+       
+        
+        </form>
+        
+        
+    <%}%>
+</div>
+        </div>
+        </div>
+        </div>
+
+<script src="/js/Student_list.js"></script>

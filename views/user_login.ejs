@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/login.css">
+<div class="signin">
+<form action ='/users/loginPost' method = "post">
+    <h1>Login Page</h1>
+ <div class="row">
+    <div class="col-4"><label>Email :</label></div>
+    <div class="col-8"><input type = "email" placeholder="email"  name="email" required></div>
+ </div>   
+
+<div class="row">
+    <div class="col-4"><label>Password:</label></div>
+    <div class="col-8"><input type = "password" placeholder="password"  name ="password" required></div>
+</div>
+
+<button class="btn-submit" type="submit">submit</button>
+
+</form>
+<div class="signup"><a href="/users/SignUp"><button class="btn-submit">SignUp</button></a></div>
+</div>
