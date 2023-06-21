@@ -173,9 +173,10 @@ module.exports.students_interview = async function(req,res){
     }
     var campany_id = await Campany.findOne({Campany_name:req.body.Campany_name})
     student_id.Status = req.body.status;
+    student_id.Campany = campany_id.Campany_name;
     student_id.save();
-    campany.Student.push(student_id.id);
-    campany.save();
+    campany_id.Student.push(student_id.id);
+    campany_id.save();
     return res.redirect('/users/profile');
 }
 
@@ -193,12 +194,105 @@ module.exports.Delete =  async function(req,res){
   module.exports.student_profile = async function(req,res){
     console.log(req.params.id);
       try{
-       var campany =await Campany.find({});
-      var data=[];
-       for(var i=0;i<campany.length;i++){
-         var student_details = {};
-          if(campany[i].Student.indexOf(req.params.id)!=-1){
-            var student = await Student.findById(req.params.id);
+    //    var campany =await Campany.find({});
+    //   var data=[];
+    //    for(var i=0;i<campany.length;i++){
+    //      var student_details = {};
+        //   if(campany[i].Student.indexOf(req.params.id)!=-1){
+            // var student = await Student.findById(req.params.id);
+            // student_details.name=student.name;
+            // student_details.email=student.email;
+            // student_details.College_name=student.College_name;
+            // student_details.Course=student.Course;
+            // student_details.Branch=student.Branch;
+            // student_details.Phone_no=student.Phone_no;
+            // student_details.Batch_no=student.Batch_no;
+            // student_details.Dsa_score=student.Dsa_score;
+            // student_details.Web_score=student.Web_score;
+            // student_details.React_score=student.React_score;
+            // student_details.Status=student.Status;
+            // student_details.Campany_name=campany[i].Campany_name;
+            // student_details.Date=campany[i].Date;
+            // data.push(student_details);
+        
+        //  }
+
+
+        var student = await Student.findById(req.params.id);
+
+        
+
+       
+
+        var data = {};
+
+        data.name = student.name;
+        data.email = student.email;
+        data.College_name = student.College_name;
+        data.Course = student.Course;
+        data.Branch = student.Branch;
+        data.Phone_no = student.Phone_no;
+        data.Batch_no = student.Batch_no;
+        data.Dsa_score = student.Dsa_score;
+        data.Web_score = student.Web_score;
+        data.React_score = student.React_score;
+
+
+    
+
+    
+
+            
+        var studentCompany = student.Campany;
+       
+
+        var company = await Campany.findOne({Campany_name : studentCompany});
+        if (company){
+
+            
+            data.Campany_name = company.Campany_name;
+            data.Date = company.Date;
+            data.Status = student.Status;
+
+        }
+    
+
+
+        
+
+     
+
+        
+
+
+        
+       
+
+
+
+
+       
+       return res.render('student_profile',{data});
+      }
+      catch(err){
+         console.log(err);
+         return res.redirect('back');
+      }
+  }
+  module.exports.download = async function(req,res){
+     try{
+
+        var data = [];
+          var user =  await User.findById(req.user.id);
+
+          var students = user.student;
+          for (var i = 0; i < students.length; i++) {
+
+            var student_details = {}; 
+
+
+            var student = await Student.findById(students[i]);
+
             student_details.name=student.name;
             student_details.email=student.email;
             student_details.College_name=student.College_name;
@@ -209,24 +303,26 @@ module.exports.Delete =  async function(req,res){
             student_details.Dsa_score=student.Dsa_score;
             student_details.Web_score=student.Web_score;
             student_details.React_score=student.React_score;
-            student_details.Status=student.Status;
-            student_details.Campany_name=campany[i].Campany_name;
-            student_details.Date=campany[i].Date;
+            var company = await Campany.findOne({Campany_name : student.Campany});
+            if (company){
+                student_details.Campany_name = company.Campany_name;
+                student_details.Interview_Date = company.Date;
+                student_details.Status=student.Status;
+
+                
+            }else{
+
+                student_details.Campany_name = "NA";
+                student_details.Interview_Date = "NA";
+                student_details.Status= "NA";
+
+
+            }
+
             data.push(student_details);
+            
+          }
         
-         }
-       }
-       return res.render('student_profile',{data});
-      }
-      catch(err){
-         console.log(err);
-         return res.redirect('back');
-      }
-  }
-  module.exports.download = async function(req,res){
-     try{
-        // var user =  await User.findById(req.user.id);
-        // var students = await user.student;
 
 
      }catch(err){
@@ -234,18 +330,14 @@ module.exports.Delete =  async function(req,res){
      }
 
 
-    const Data = [
-        {code: 'CA', name: 'California'},
-        {code: 'TX', name: 'Tex'},
-        {code: 'NY', name: 'New York'},
-      ];
+   
        
       // If you use "await", code must be inside an asynchronous function:
       (async () => {
-        const csv = new ObjectsToCsv(Data);
+        let csv = new ObjectsToCsv(data);
        
         // Save to file:
-       await csv.toDisk('./test.csv');
+       await csv.toDisk('./studentDetails.csv');
     //    const file = '/images/profile.png';
     //    const filePath = `${__dirname}/files`;
   
@@ -254,8 +346,13 @@ module.exports.Delete =  async function(req,res){
     //        console.log('Download Completed');
     //    })
 
+    csv = new ObjectsToCsv(data);
+    csv.toDisk('./studentDetails',{append : false});
+
        
         // Return the CSV file as string:
         console.log(await csv.toString());
       })();
+
+      return res.download(__dirname + '/../studentDetails.csv');
   }

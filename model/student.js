@@ -43,8 +43,7 @@ var studentSchema = new mongoose.Schema(
             required:true
         },
         Status:{
-            type:String,
-            required:true
+            type:String
         },
         Campany:{
             type:String
