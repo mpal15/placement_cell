@@ -24,7 +24,7 @@ const MongoStore = require("connect-mongo");
         maxAge: 1000 * 60 * 60 * 24
     },
     store : connect_Mongo.create({
-        mongoUrl : 'mongodb://127.0.0.1:27017/placement_file'
+        mongoUrl : 'mongodb+srv://mohitpal9513:mpal9513@cluster0.gbojmyb.mongodb.net/Placement_Cell?retryWrites=true&w=majority'
     })
  }))
 
@@ -35,7 +35,7 @@ const MongoStore = require("connect-mongo");
  app.use(passport.setAuthenticated);
 
 
-var port = 8000;
+var port = 8000 || process.env.port;
 
 
 
